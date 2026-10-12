@@ -797,18 +797,19 @@ transition-duration: .01ms !important;
 
 .work-gallery {
     width: 100%;
-    padding: 40px 0 50px;
+    padding: 30px 0 45px;
 }
 
 .work-gallery > .label {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .work-grid-two {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    gap: 14px;
     width: 100%;
+    align-items: start;
 }
 
 .work-grid-two .work-item {
@@ -819,7 +820,7 @@ transition-duration: .01ms !important;
 .work-grid-two .work-item img {
     display: block;
     width: 100%;
-    height: 460px;
+    height: 500px;
     object-fit: contain;
     object-position: center;
     filter: grayscale(100%);
@@ -828,18 +829,17 @@ transition-duration: .01ms !important;
 .work-grid-two .work-item figcaption {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-    padding-top: 12px;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 10px;
     color: var(--muted);
     font-size: 10px;
     line-height: 1.5;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
 }
 
 .work-grid-two .work-item figcaption span:first-child {
-    flex-shrink: 0;
     color: #a47b84;
 }
 
@@ -847,25 +847,53 @@ transition-duration: .01ms !important;
     text-align: right;
 }
 
+/* Отступы для блока с прайсом */
+
+.services-prices {
+    clear: both;
+    position: relative;
+    margin-top: 40px;
+    padding-top: 35px;
+}
+
+.services-prices h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    line-height: 1.1;
+}
+
+.services-prices .section-intro {
+    margin-top: 0;
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+.services-prices .price-list {
+    margin-top: 0;
+}
+
 @media (max-width: 600px) {
     .work-grid-two {
-        gap: 12px;
+        gap: 10px;
     }
 
     .work-grid-two .work-item img {
-        height: 300px;
+        height: 360px;
     }
 
     .work-grid-two .work-item figcaption {
-        gap: 6px;
         font-size: 9px;
-        letter-spacing: 0;
+    }
+
+    .services-prices {
+        margin-top: 25px;
+        padding-top: 25px;
     }
 }
 
 @media (max-width: 380px) {
     .work-grid-two .work-item img {
-        height: 240px;
+        height: 290px;
     }
 }
 
