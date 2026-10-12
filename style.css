@@ -793,3 +793,142 @@ transition-duration: .01ms !important;
 }
 }
 
+/* NOIR — gallery and services */
+
+.work-gallery,
+.services-prices,
+.beforecare,
+.services-cta {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.work-gallery .label,
+.services-prices .label,
+.beforecare .label,
+.services-cta .label {
+    margin-bottom: 24px;
+}
+
+.work-feature {
+    margin-top: 28px;
+}
+
+.work-feature img {
+    display: block;
+    width: 100%;
+    height: min(72vw, 680px);
+    min-height: 320px;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+}
+
+.work-caption,
+.work-item figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 14px;
+    color: var(--muted, #aaa);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.work-item {
+    min-width: 0;
+    margin: 0;
+}
+
+.work-item img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+    transition: opacity 0.3s ease;
+}
+
+.work-item:hover img {
+    opacity: 0.82;
+}
+
+.work-item figcaption span:first-child {
+    color: #9b5968;
+}
+
+.services-prices h2,
+.beforecare h2,
+.services-cta h2 {
+    margin-top: 0;
+}
+
+.section-intro,
+.price-note {
+    max-width: 560px;
+    line-height: 1.7;
+    color: var(--muted, #aaa);
+}
+
+.price-note {
+    margin-top: 24px;
+    font-size: 13px;
+}
+
+.process-grid {
+    margin-top: 44px;
+}
+
+.process-grid .number {
+    color: #9b5968;
+}
+
+.services-cta {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.services-cta p {
+    max-width: 460px;
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+    .work-gallery,
+    .services-prices,
+    .beforecare,
+    .services-cta {
+        padding-top: 58px;
+        padding-bottom: 58px;
+    }
+
+    .work-feature img {
+        height: 115vw;
+        min-height: 300px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 36px;
+    }
+
+    .work-item img {
+        height: 105vw;
+        max-height: 480px;
+    }
+
+    .work-caption,
+    .work-item figcaption {
+        font-size: 10px;
+    }
+}
