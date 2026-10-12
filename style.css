@@ -797,8 +797,8 @@ transition-duration: .01ms !important;
 
 .work-gallery {
 display: grid;
-grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-gap: 18px 20px;
+grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+gap: 18px 22px;
 padding-top: 40px;
 padding-bottom: 45px;
 align-items: start;
@@ -819,7 +819,7 @@ margin: 0;
 .work-feature img {
 display: block;
 width: 100%;
-height: 540px;
+height: 460px;
 object-fit: contain;
 object-position: center;
 background: transparent;
@@ -831,13 +831,22 @@ filter: grayscale(100%);
 display: flex;
 justify-content: space-between;
 align-items: flex-start;
-gap: 10px;
+gap: 8px;
 padding-top: 10px;
-color: #aaa;
+color: var(–muted);
 font-size: 10px;
 line-height: 1.5;
-letter-spacing: 0.06em;
+letter-spacing: 0.04em;
 text-transform: uppercase;
+}
+
+.work-caption span,
+.work-item figcaption span {
+min-width: 0;
+}
+
+.work-caption span:last-child {
+text-align: right;
 }
 
 .work-grid {
@@ -845,9 +854,9 @@ grid-column: 2;
 grid-row: 2;
 display: grid;
 grid-template-columns: 1fr;
-gap: 14px;
+gap: 18px;
 min-width: 0;
-margin-top: 0;
+margin: 0;
 }
 
 .work-item {
@@ -858,7 +867,7 @@ margin: 0;
 .work-item img {
 display: block;
 width: 100%;
-height: 260px;
+height: 220px;
 object-fit: contain;
 object-position: center;
 background: transparent;
@@ -871,15 +880,20 @@ opacity: 0.82;
 }
 
 .work-item figcaption span:first-child {
-color: #9b5968;
+flex: 0 0 auto;
+color: #a47b84;
 }
 
-/* Телефоны и небольшие экраны */
+.work-item figcaption span:last-child {
+text-align: right;
+}
 
-@media (max-width: 700px) {
+/* Планшеты и телефоны */
+
+@media (max-width: 800px) {
 .work-gallery {
 grid-template-columns: minmax(0, 1fr);
-gap: 18px;
+gap: 20px;
 padding-top: 30px;
 padding-bottom: 35px;
 }
@@ -894,36 +908,48 @@ padding-bottom: 35px;
 }
 
 .work-feature img {
-    height: 430px;
+    height: 380px;
 }
 
 .work-grid {
     grid-column: 1;
     grid-row: auto;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 0;
+    gap: 14px;
 }
 
 .work-item img {
-    height: 230px;
+    height: 210px;
 }
 
 .work-caption,
 .work-item figcaption {
-    gap: 6px;
     font-size: 9px;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
+    gap: 6px;
 }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 430px) {
 .work-feature img {
-height: 360px;
+height: 330px;
+}
+
+.work-grid {
+    gap: 10px;
 }
 
 .work-item img {
-    height: 190px;
+    height: 170px;
 }
+
+.work-caption,
+.work-item figcaption {
+    font-size: 8px;
+    line-height: 1.4;
+}
+}
+
+
 }
 
