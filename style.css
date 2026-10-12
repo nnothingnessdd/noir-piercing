@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
---black: #090909;
---surface: #111111;
---surface-2: #191919;
---wine: #1d1013;
---burgundy: #48202a;
---burgundy-light: #633440;
---silver: #bcbcbc;
---text: #eeeeee;
---muted: #a3a3a3;
---muted-dark: #777777;
---line: rgba(255, 255, 255, .10);
---line-hover: rgba(255, 255, 255, .24);
+--black: #090708;
+--surface: #100b0d;
+--surface-2: #171013;
+--wine: #260711;
+--burgundy: #4a1023;
+--burgundy-light: #74263e;
+--silver: #c4b8bd;
+--text: #f0e9eb;
+--muted: #b0a2a7;
+--muted-dark: #796b71;
+--line: rgba(238, 220, 227, .11);
+--line-hover: rgba(164, 76, 103, .48);
 }
 
 * {
