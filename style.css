@@ -793,7 +793,7 @@ transition-duration: .01ms !important;
 }
 }
 
-/* ===== NOIR: аккуратная галерея работ ===== */
+/* ===== NOIR: галерея работ ===== */
 
 .work-gallery {
 display: grid;
@@ -819,10 +819,10 @@ margin: 0;
 .work-feature img {
 display: block;
 width: 100%;
-height: 470px;
+height: 400px;
 object-fit: contain;
 object-position: center;
-background: #111;
+background: transparent;
 filter: grayscale(100%);
 }
 
@@ -858,10 +858,10 @@ margin: 0;
 .work-item img {
 display: block;
 width: 100%;
-height: 210px;
+height: 190px;
 object-fit: contain;
 object-position: center;
-background: #111;
+background: transparent;
 filter: grayscale(100%);
 transition: opacity 0.3s ease;
 }
@@ -874,7 +874,7 @@ opacity: 0.82;
 color: #9b5968;
 }
 
-/* Планшеты и телефоны */
+/* Телефоны и небольшие экраны */
 
 @media (max-width: 700px) {
 .work-gallery {
@@ -894,7 +894,7 @@ padding-bottom: 35px;
 }
 
 .work-feature img {
-    height: 360px;
+    height: 320px;
 }
 
 .work-grid {
@@ -906,7 +906,7 @@ padding-bottom: 35px;
 }
 
 .work-item img {
-    height: 200px;
+    height: 170px;
 }
 
 .work-caption,
@@ -919,11 +919,11 @@ padding-bottom: 35px;
 
 @media (max-width: 380px) {
 .work-feature img {
-height: 320px;
+height: 290px;
 }
 
 .work-item img {
-    height: 160px;
+    height: 150px;
 }
 }
 
