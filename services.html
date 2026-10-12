@@ -3,19 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Услуги и виды пирсинга NOIR. Галерея работ, информация о процедуре и стоимости.">
-
     <title>Услуги — NOIR Piercing Studio</title>
-
     <link rel="stylesheet" href="style.css">
+
+    <!-- Стили только для страницы услуг: не меняют остальные страницы сайта -->
+    <style>
+        main.page.services-page {
+            width: 100%;
+            max-width: none;
+            min-height: 0;
+            padding: 150px 7% 90px;
+            overflow: visible;
+        }
+
+        .services-page .page-head {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 0 56px;
+        }
+
+        .services-page .page-head .label,
+        .services-page .work-gallery > .label,
+        .services-page .services-prices > .label,
+        .services-page .beforecare > .label,
+        .services-page .services-cta > .label {
+            margin-bottom: 18px;
+        }
+
+        .services-page .page-head h1 {
+            margin: 0;
+            font-size: clamp(68px, 10vw, 132px);
+            line-height: .9;
+        }
+
+        .services-page .page-head p {
+            max-width: 560px;
+            margin: 26px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .services-page .work-gallery {
+            display: block;
+            width: 100%;
+            margin: 0 0 72px;
+            padding: 0;
+        }
+
+        .services-page .work-gallery > .label {
+            margin-bottom: 18px;
+        }
+
+        .services-page .work-grid-two {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: start;
+            gap: 14px;
+            width: 100%;
+            margin: 0;
+        }
+
+        .services-page .work-grid-two .work-item {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            border: 0;
+        }
+
+        .services-page .work-grid-two .work-item img {
+            display: block;
+            width: 100%;
+            height: clamp(300px, 43vw, 590px);
+            max-width: 100%;
+            margin: 0;
+            object-fit: contain;
+            object-position: center;
+            background: #0d0a0b;
+            filter: grayscale(100%);
+        }
+
+        .services-page .work-grid-two .work-item figcaption {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            width: 100%;
+            margin: 0;
+            padding: 12px 0 0;
+            color: var(--muted);
+            font-size: 10px;
+            line-height: 1.5;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .services-page .work-grid-two .work-item figcaption span:first-child {
+            flex: 0 0 auto;
+            color: #a47b84;
+        }
+
+        .services-page .work-grid-two .work-item figcaption span:last-child {
+            text-align: right;
+        }
+
+        .services-page .services-prices {
+            display: block;
+            position: relative;
+            clear: both;
+            width: 100%;
+            margin: 0 0 100px;
+            padding: 0;
+        }
+
+        .services-page .services-prices h2,
+        .services-page .beforecare h2,
+        .services-page .services-cta h2 {
+            margin: 0;
+            font-size: clamp(46px, 6vw, 76px);
+            line-height: 1;
+        }
+
+        .services-page .services-prices .section-intro {
+            max-width: 560px;
+            margin: 22px 0 34px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.85;
+        }
+
+        .services-page .price-list {
+            width: 100%;
+            margin: 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .services-page .price-row {
+            display: grid;
+            grid-template-columns: 48px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 18px;
+            width: 100%;
+            min-width: 0;
+            margin: 0;
+            padding: 19px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .services-page .price-row .number {
+            color: #a47b84;
+            font-size: 11px;
+        }
+
+        .services-page .price-row .name {
+            min-width: 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(24px, 2.7vw, 34px);
+            line-height: 1.2;
+        }
+
+        .services-page .price-row .price {
+            color: var(--silver);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .services-page .price-note {
+            max-width: 680px;
+            margin: 20px 0 0;
+            color: var(--muted-dark);
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .services-page .beforecare {
+            display: block;
+            width: 100%;
+            margin: 0 0 100px;
+            padding: 0;
+        }
+
+        .services-page .beforecare h2 {
+            max-width: 700px;
+            margin-bottom: 34px;
+        }
+
+        .services-page .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: stretch;
+            gap: 16px;
+            width: 100%;
+            margin: 0;
+        }
+
+        .services-page .process-grid .card {
+            min-width: 0;
+            margin: 0;
+            padding: 28px 25px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+        }
+
+        .services-page .process-grid .card .number {
+            display: block;
+            margin-bottom: 22px;
+            color: #a47b84;
+            font-size: 11px;
+        }
+
+        .services-page .process-grid .card h3 {
+            margin: 0 0 12px;
+            font-size: clamp(25px, 2.6vw, 32px);
+            line-height: 1.15;
+        }
+
+        .services-page .process-grid .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.85;
+        }
+
+        .services-page .services-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin: 0;
+            padding: 64px 24px;
+            text-align: center;
+            background: var(--surface);
+            border: 1px solid var(--line);
+        }
+
+        .services-page .services-cta h2 {
+            margin: 0;
+        }
+
+        .services-page .services-cta p {
+            max-width: 500px;
+            margin: 22px auto 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .services-page .services-cta .button {
+            margin-top: 26px;
+        }
+
+        @media (max-width: 800px) {
+            main.page.services-page {
+                padding: 125px 24px 64px;
+            }
+
+            .services-page .page-head {
+                margin-bottom: 42px;
+            }
+
+            .services-page .page-head h1 {
+                font-size: clamp(60px, 13vw, 100px);
+            }
+
+            .services-page .work-gallery {
+                margin-bottom: 58px;
+            }
+
+            .services-page .work-grid-two {
+                gap: 10px;
+            }
+
+            .services-page .work-grid-two .work-item img {
+                height: clamp(240px, 58vw, 420px);
+            }
+
+            .services-page .services-prices,
+            .services-page .beforecare {
+                margin-bottom: 68px;
+            }
+
+            .services-page .process-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .services-page .process-grid .card {
+                padding: 24px;
+            }
+
+            .services-page .process-grid .card .number {
+                margin-bottom: 12px;
+            }
+
+            .services-page .services-cta {
+                padding: 48px 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main.page.services-page {
+                padding: 116px 20px 48px;
+            }
+
+            .services-page .page-head h1 {
+                font-size: clamp(56px, 14vw, 72px);
+            }
+
+            .services-page .page-head p {
+                margin-top: 20px;
+                font-size: 13px;
+            }
+
+            .services-page .work-grid-two {
+                gap: 8px;
+            }
+
+            .services-page .work-grid-two .work-item img {
+                height: clamp(210px, 65vw, 310px);
+            }
+
+            .services-page .work-grid-two .work-item figcaption {
+                flex-wrap: wrap;
+                gap: 4px;
+                font-size: 8px;
+                letter-spacing: .5px;
+            }
+
+            .services-page .services-prices h2,
+            .services-page .beforecare h2,
+            .services-page .services-cta h2 {
+                font-size: clamp(42px, 11vw, 52px);
+            }
+
+            .services-page .services-prices .section-intro {
+                margin: 18px 0 26px;
+                font-size: 13px;
+            }
+
+            .services-page .price-row {
+                grid-template-columns: 25px minmax(0, 1fr);
+                gap: 8px 10px;
+                padding: 16px 0;
+            }
+
+            .services-page .price-row .name {
+                font-size: 26px;
+            }
+
+            .services-page .price-row .price {
+                grid-column: 2;
+                font-size: 12px;
+                white-space: normal;
+            }
+
+            .services-page .services-cta .button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .services-page *,
+            .services-page *::before,
+            .services-page *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
 <header>
     <a class="logo" href="piercing.html">NOIR</a>
-
     <nav>
         <a href="piercing.html">Главная</a>
         <a class="active" href="services.html">Услуги</a>
@@ -24,17 +389,13 @@
         <a href="about.html">О студии</a>
         <a href="booking.html">Запись</a>
     </nav>
-
     <div class="menu">☰</div>
 </header>
 
-<main class="page">
-
+<main class="page services-page">
     <section class="page-head reveal">
         <div class="label">Services / 01</div>
-
         <h1>Искусство<br>в деталях.</h1>
-
         <p>
             Каждый прокол — индивидуальная работа,
             в которой важны анатомия, точность
@@ -42,91 +403,35 @@
         </p>
     </section>
 
-    <!-- ГАЛЕРЕЯ РАБОТ -->
-
-   <section class="work-gallery reveal">
-    <div class="label">Selected works</div>
-
-    <div class="work-grid work-grid-two">
-
-        <figure class="work-item">
-            <img
-                src="images/1qH6fnDKJ6bA6zo1WDP3PlSG10RTEjWBqSTtXfSJozer_V9M5c7goGTV4bDCwewgjwlUq1S2l4kn6GDjEbKnWezsOdLvWQ.jpg"
-                alt="Индивидуальная композиция из нескольких проколов уха"
-                loading="lazy"
-            >
-            <figcaption>
-                <span>01</span>
-                <span>Ear curation</span>
-            </figcaption>
-        </figure>
-
-        <figure class="work-item">
-            <img
-                src="images/QCkjD5rwXR1PR9XpA8E5cOjPpg8w2Dq7oGAbRjdetnDZes7KLxwTF_ykX_kgK54fd4RDTzMI8fFEmXZ8wx4PRmbAT76hDQ.jpg"
-                alt="Классический прокол мочки уха"
-                loading="lazy"
-            >
-            <figcaption>
-                <span>02</span>
-                <span>Classic lobe</span>
-            </figcaption>
-        </figure>
-
-    </div>
-</section>
-
-
-    <!-- ПРАЙС -->
+    <section class="work-gallery reveal">
+        <div class="label">Selected works</div>
+        <div class="work-grid work-grid-two">
+            <figure class="work-item">
+                <img src="images/1qH6fnDKJ6bA6zo1WDP3PlSG10RTEjWBqSTtXfSJozer_V9M5c7goGTV4bDCwewgjwlUq1S2l4kn6GDjEbKnWezsOdLvWQ.jpg" alt="Индивидуальная композиция из нескольких проколов уха" loading="lazy">
+                <figcaption><span>01</span><span>Ear curation</span></figcaption>
+            </figure>
+            <figure class="work-item">
+                <img src="images/QCkjD5rwXR1PR9XpA8E5cOjPpg8w2Dq7oGAbRjdetnDZes7KLxwTF_ykX_kgK54fd4RDTzMI8fFEmXZ8wx4PRmbAT76hDQ.jpg" alt="Классический прокол мочки уха" loading="lazy">
+                <figcaption><span>02</span><span>Classic lobe</span></figcaption>
+            </figure>
+        </div>
+    </section>
 
     <section class="services-prices reveal">
         <div class="label">Services / 02</div>
-
         <h2>Виды проколов</h2>
-
         <p class="section-intro">
             Стоимость зависит от выбранной зоны,
             сложности процедуры и украшения.
         </p>
 
         <div class="price-list">
-
-            <div class="price-row">
-                <span class="number">01</span>
-                <span class="name">Мочка</span>
-                <span class="price">от 1 500 ₽</span>
-            </div>
-
-            <div class="price-row">
-                <span class="number">02</span>
-                <span class="name">Helix</span>
-                <span class="price">от 2 000 ₽</span>
-            </div>
-
-            <div class="price-row">
-                <span class="number">03</span>
-                <span class="name">Conch</span>
-                <span class="price">от 2 000 ₽</span>
-            </div>
-
-            <div class="price-row">
-                <span class="number">04</span>
-                <span class="name">Tragus</span>
-                <span class="price">от 2 000 ₽</span>
-            </div>
-
-            <div class="price-row">
-                <span class="number">05</span>
-                <span class="name">Нос</span>
-                <span class="price">от 2 000 ₽</span>
-            </div>
-
-            <div class="price-row">
-                <span class="number">06</span>
-                <span class="name">Сложный прокол</span>
-                <span class="price">от 2 500 ₽</span>
-            </div>
-
+            <div class="price-row"><span class="number">01</span><span class="name">Мочка</span><span class="price">от 1 500 ₽</span></div>
+            <div class="price-row"><span class="number">02</span><span class="name">Helix</span><span class="price">от 2 000 ₽</span></div>
+            <div class="price-row"><span class="number">03</span><span class="name">Conch</span><span class="price">от 2 000 ₽</span></div>
+            <div class="price-row"><span class="number">04</span><span class="name">Tragus</span><span class="price">от 2 000 ₽</span></div>
+            <div class="price-row"><span class="number">05</span><span class="name">Нос</span><span class="price">от 2 000 ₽</span></div>
+            <div class="price-row"><span class="number">06</span><span class="name">Сложный прокол</span><span class="price">от 2 500 ₽</span></div>
         </div>
 
         <p class="price-note">
@@ -135,70 +440,43 @@
         </p>
     </section>
 
-    <!-- ПОДГОТОВКА -->
-
     <section class="beforecare reveal">
         <div class="label">The process / 03</div>
-
         <h2>Внимание<br>к каждому этапу.</h2>
-
         <div class="grid process-grid">
-
             <article class="card">
                 <span class="number">01</span>
                 <h3>Консультация</h3>
-                <p>
-                    Обсуждение желаемого прокола,
-                    анатомии и подходящего украшения.
-                </p>
+                <p>Обсуждение желаемого прокола, анатомии и подходящего украшения.</p>
             </article>
-
             <article class="card">
                 <span class="number">02</span>
                 <h3>Безопасность</h3>
-                <p>
-                    Соблюдение требований гигиены,
-                    стерильности инструментов
-                    и расходных материалов.
-                </p>
+                <p>Соблюдение требований гигиены, стерильности инструментов и расходных материалов.</p>
             </article>
-
             <article class="card">
                 <span class="number">03</span>
                 <h3>Украшение</h3>
-                <p>
-                    Подбор подходящего материала,
-                    размера и формы с учётом
-                    конкретного прокола.
-                </p>
+                <p>Подбор подходящего материала, размера и формы с учётом конкретного прокола.</p>
             </article>
-
         </div>
     </section>
 
-    <!-- ЗАПИСЬ -->
-
     <section class="services-cta reveal">
         <div class="label">Next step</div>
-
         <h2>Выбери свой<br>акцент.</h2>
-
         <p>
             Ознакомься с процессом записи
             и подготовь вопросы к консультации.
         </p>
-
         <a class="button" href="booking.html">Перейти к записи ↗</a>
     </section>
-
 </main>
 
 <footer>
     <span>NOIR — Piercing Studio</span>
     <span>© 2026</span>
 </footer>
-
 <script src="script.js"></script>
-
 </body>
 </html>
